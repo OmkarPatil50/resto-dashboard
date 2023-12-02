@@ -1,0 +1,59 @@
+.dashboard-container {
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dashboard-title {
+  font-size: 32px;
+  font-family: "Poppins", sans-serif;
+  color: var(--font-color);
+  margin-bottom: 20px;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-rows: 75px 75px 75px;
+  align-items: center;
+}
+
+.radio-label {
+  color: var(--radio-background);
+  margin: 0 10px;
+}
+
+p {
+  color: var(--font-color);
+}
+
+.input-label {
+  --input-border-color: var(--input-border);
+}
+
+.input-field-dashboard {
+  width: 100%;
+  padding: 15px;
+  margin: 0;
+  border: 1px solid var(--input-border);
+  background-color: var(--background-color);
+  color: var(--font-color);
+  border-radius: 10px;
+}
+
+.grid-four {
+  display: grid;
+  grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr;
+  column-gap: 10px;
+}
+
+.radio-input {
+  background-color: transparent;
+}
+
+text {
+  color: white;
+}
+
+.bar-chart {
+  margin: 60px 0 0 65px ;
+}

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
     username: "DJ@4",
     password: "Dhunjam@2023",
   });
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
 
@@ -14,6 +16,9 @@ const Login = () => {
       ...prev,
       [event.target.id]: event.target.value,
     }));
+  };
+  const handleTogglePassword = () => {
+    setShowPassword((prev) => !prev);
   };
 
   const handleSignIn = async () => {
@@ -40,30 +45,44 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Venue Admin Login</h1>
-      <label htmlFor="username">
-        <input
-          type="text"
-          id="username"
-          value={loginData.username}
-          required
-          onChange={handleChange}
-        />
-      </label>
-      <label htmlFor="password">
-        <input
-          type="password"
-          id="password"
-          value={loginData.password}
-          required
-          onChange={handleChange}
-        />
-      </label>
-      <button type="submit" onClick={handleSignIn}>
-        Sign in
-      </button>
-      <a href="/">New Registration</a>
+    <div className="page flex-center">
+      <div className="login-container flex-center flex-col">
+        <h1 className="login-title">Venue Admin Login</h1>
+        <label htmlFor="username" className="input-label">
+          <input
+            type="text"
+            id="username"
+            value={loginData.username}
+            required
+            onChange={handleChange}
+            className="input-field"
+            placeholder="username"
+          />
+        </label>
+        <label htmlFor="password" className="input-label relative-label">
+          <input
+            type={showPassword ? "text" : "password"}
+            id="password"
+            value={loginData.password}
+            required
+            onChange={handleChange}
+            className="input-field"
+            placeholder="password"
+          />
+          <span
+            className={`eye-icon ${showPassword ? "show" : ""}`}
+            onClick={handleTogglePassword}
+          >
+            👁️
+          </span>
+        </label>
+        <button type="submit" onClick={handleSignIn} className="save-button">
+          Sign in
+        </button>
+        <a href="/" className="registration-link">
+          New Registration ?
+        </a>
+      </div>
     </div>
   );
 };

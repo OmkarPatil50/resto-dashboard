@@ -1,0 +1,83 @@
+.page {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 50px;
+}
+
+.login-container {
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.login-title {
+  font-size: 32px;
+  color: var(--font-color);
+  margin-bottom: 25px;
+}
+
+.input-field {
+  width: 600px;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid var(--input-border);
+  background-color: var(--background-color);
+  color: var(--font-color);
+  border-radius: 10px;
+}
+
+.input-field::placeholder {
+  color: var(--font-color);
+}
+
+.save-button {
+  width: 600px;
+  padding: 15px;
+  margin: 20px;
+  background-color: var(--save-button-background);
+  border: 1px solid var(--save-button-background);
+  color: var(--font-color);
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.save-button:disabled, input:disabled {
+  background-color: var(--greyed-out-radio-background);
+  cursor: not-allowed;
+}
+
+.save-button:hover,
+.save-button:active {
+  border: 1px solid var(--save-button-hover);
+}
+
+.registration-link {
+  color: var(--font-color);
+  text-decoration: none;
+}
+
+.registration-link:hover {
+  text-decoration: underline;
+}
+
+.relative-label{
+  position:relative
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.eye-icon.show {
+  transform: translateY(-50%) rotate(-45deg);
+}
+

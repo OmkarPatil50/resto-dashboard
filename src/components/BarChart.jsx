@@ -4,14 +4,11 @@ import * as d3 from "d3";
 const BarChart = ({ data }) => {
   const chartRef = useRef();
 
-  console.log(data);
-
   useEffect(() => {
     const svg = d3.select(chartRef.current);
     const width = 640;
     const height = 300;
 
-    // Define margin
     const margin = { top: 20, right: 20, bottom: 40, left: 40 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
@@ -32,7 +29,6 @@ const BarChart = ({ data }) => {
       .domain([0, d3.max(values)])
       .range([innerHeight, 0]);
 
-    // Bars
     svg
       .selectAll("rect")
       .data(keys)
@@ -44,7 +40,6 @@ const BarChart = ({ data }) => {
       .attr("height", (d) => innerHeight - yScale(data[d]))
       .attr("fill", "#f0c3f1");
 
-    // X Axis
     svg
       .append("g")
       .attr("transform", `translate(0, ${innerHeight})`)
@@ -52,13 +47,11 @@ const BarChart = ({ data }) => {
       .selectAll("path, line")
       .style("stroke", "white");
 
-    // Y Axis
     svg
       .append("g")
       .call(d3.axisLeft(yScale).tickSize(0))
       .selectAll("path, line")
       .style("stroke", "white");
-    // Y Axis Label
     svg
       .append("text")
       .attr("y", 0 - margin.left)

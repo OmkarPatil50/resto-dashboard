@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Resto-Bar Admin Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This repository contains the code for a Resto-Bar Admin Dashboard with features like dynamic pricing, song request management, and visualization of data. The application uses the D3.js library to render a bar chart dynamically based on user input.
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+- React.js
+- CSS
+- D3.js
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1. Song Request Configuration:
 
-### `npm test`
+- **Charge Customers:** The value (true or false) is fetched from the "charge_customers" key in the API response. If set to "Yes," the following fields become editable; otherwise, they are greyed out.
+  
+- **Custom Song Request Amount:** The integer value is fetched from "category_6" in the response. It is a mandatory field if song requests are chargeable, with a minimum value of 99. The "Save" button is enabled only if the entered value is higher than 99; otherwise, it is greyed out.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Regular Song Request Amounts:** Values are fetched in descending order from "category_7," "category_8," "category_9," and "category_10" in the response. They are mandatory if song requests are chargeable, with minimum values of 79, 59, 39, and 19, respectively. The "Save" button is enabled only if all entered values are higher than the specified minimum values; otherwise, it is greyed out.
 
-### `npm run build`
+### 2. Graph:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- A dynamic bar chart that changes based on the values entered for custom and regular song request amounts. If song requests are not chargeable, the graph is removed.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Styles
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Font Size: Headings - 32px, Others - 16px
+- Font Family: Poppins
+- Screen Background: #030303
+- Font Colour: #FFFFFF
+- Radio Button Background Colour: #FFFFFF
+- Selected Radio Button Colour: #6741D9
+- Text/Input Field Border: #FFFFFF
+- Graph Bars Colour: #F0C3F1
+- Bar Axis and Markings Colour: #FFFFFF
+- Save Button Background: #6741D9
+- Hover on Save Button: Border becomes active, #F0C3F1, 1px
+- Click on Save Button: Border becomes active, #F0C3F1, 1px
 
-### `npm run eject`
+## API Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Screen 1:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **(POST) Admin - Login:** Used when the "Sign in" button is clicked. Username: DJ@4, Password: Dhunjam@2023.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Screen 2:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **(GET) Admin – Details:** Used for getting screen 2 data. Save the ID from the successful login response to be used in this endpoint call.
 
-## Learn More
+- **(PUT) Admin - Price Update:** Used to save newly entered price amounts. After updating the price, call "(GET) Admin - Details" again to fetch the updated price for display on screen 2. If the "Save" button is greyed out, no API call is made.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## D3.js Library
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project utilizes the D3.js library for dynamic rendering of the bar chart in the Graph section.
 
-### Code Splitting
+## Instructions for Running the Application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Clone the repository.
+2. Install dependencies using `npm install` or `yarn install`.
+3. Run the application with `npm start` or `yarn start`.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to explore the code and customize it according to your requirements!
